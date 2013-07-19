@@ -1,0 +1,17 @@
+<div class="container" >
+  <form id="create-post" action="/post/create" method="POST">
+    <label for="post-name">Post Title</label><br>
+    <input id="post-name" type="text" placeholder="Post Title" name="blog[:title]" /><br>
+
+    <label for="post-body" action="">Write your blog post</label><br>
+    <textarea id="post-body" rows="30" cols="70" placeholder="Your text here" name="blog[:body]"></textarea>
+
+    <label for="post-tags" action="">Add tags</label><br>
+    <textarea id="post-tags" rows="3" cols="30" name="blog[:tags]" placeholder="Enter your tags and seperate them by commas, if your tags are not seperated they will not help others find your blog by them."></textarea><br>
+    <input type="submit" value="Submit"><br>
+
+    <label for="user-name">Your Name</label><br>
+    <input id="user-name" type="text" placeholder="You don't have to be ananomous" /><br>
+    <!-- <input id="user-name" type="text" placeholder="<%=@user %>" /><br> -->
+  </form>
+</div>
