@@ -8,14 +8,13 @@ get '/' do
 end
 
 get '/post/create' do
-  puts #{params}
   erb :post_create
 end
 
 post '/post/create' do
-  @args = {title: params[":blog"][":title"], body: params[":blog"][":body"]}
-  Blog.create{@args}
-  @tags = {tags: params["blog"][":tags"]}
-  #Blog.tags << @tags.map {|tag| Tag.find_or_create_by_name(tag)}
+  args = {title: params["blog"][":title"], body: params["blog"][":body"]}
+  @blog = Blog.create(args)
+  tags = {tags: params["blog"][":tags"]}
+  tags[:tags].split(',').each { |tag| @blog.tags << Tag.find_or_create_by_name(name: tag.strip)}
   erb :post_successful
 end
